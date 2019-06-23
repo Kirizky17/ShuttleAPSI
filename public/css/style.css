@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Flama";
+  src: url("../fonts/Flama-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+*  {
+	margin: 0px !important;
+}
+
+body {
+	width: 100%;
+}
+
+.row {
+	width: 100%;
+}
+
+#header {
+	height: 7vh;
+	width: 100%;
+	background: #114d7c;
+}
+
+#title {
+	color: white;
+	font-size: 24px;
+	font-weight: bolder;
+	font-family: roboto;
+	padding: 9px 15px;
+}
+
+#sidebar {
+	min-height: 93vh;
+	background: #2196f3;
+	padding: 0;
+}
+
+#content {
+	background: rgba(33,150,243,0.5);
+	min-height: 93vh;
+}
+
+#menu-bar {
+	padding: 0;
+}
+
+#menu-bar ul {
+	width: 100%;
+	padding: 0;
+}
+
+#menu-bar ul li {
+	width: 100%;
+	text-align: center;
+}
+
+#menu-bar ul li a {
+	color: black;
+	font-weight: bolder;
+	font-family: flama;
+	font-size: 16px;
+	transition: all .5s;
+}
+
+#menu-bar ul li a:hover {
+	background: #114d7c;
+	color: white;
+	transition: all .5s;
+}
