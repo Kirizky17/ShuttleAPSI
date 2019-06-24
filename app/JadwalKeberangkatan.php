@@ -13,11 +13,26 @@ class JadwalKeberangkatan extends Model
 
     public function asal()
     {
-        return $this->hasOne('App\Pool', 'foreign_key');
+        return $this->belongsTo('App\Pool', 'keberangkatan');
     }
 
     public function tujuan()
     {
-        return $this->hasOne('App\Pool', 'foreign_key');
+        return $this->belongsTo('App\Pool', 'tujuan');
+    }
+
+    public function partner()
+    {
+        return $this->belongsTo('App\Partner', 'shuttle');
+    }
+
+    public function mobil()
+    {
+        return $this->belongsTo('App\Mobil', 'mobil');
+    }
+
+    public function keberangkatan()
+    {
+        return $this->hasOne('App\Keberangkatan');
     }
 }

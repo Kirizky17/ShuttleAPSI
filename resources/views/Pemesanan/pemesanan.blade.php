@@ -44,42 +44,27 @@
 		      	</div>
 		      	
 	      	</div>		
-			<table class="table table-striped">
+			<table id="tabel-pemesanan" class="table table-striped">
 			<tr>
-				<th style="width: 20%">Agen</th>
-				<th style="width: 20%">Waktu Keberangkatan</th>
-				<th style="width: 20%">Harga</th>
-				<th style="width: 20%">Keberangkatan</th>
-				<th style="width: 20%">Tujuan</th>
+				<th style="width: 15%; text-align: center;">Agen</th>
+				<th style="width: 20%; text-align: center;">Waktu Keberangkatan</th>
+				<th style="width: 15%; text-align: center;">Harga</th>
+				<th style="width: 20%; text-align: center;">Keberangkatan</th>
+				<th style="width: 20%; text-align: center;">Tujuan</th>
+				<th style="width: 10%; text-align: center;">Aksi</th>
 			</tr>
-			<tr>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-			</tr>
-			<tr>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-			</tr>
-			<tr>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-			</tr>
-			<tr>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-				<td>AAAA</td>
-			</tr>
+			@isset($data['search_result'])
+				@foreach ($data['search_result'] as $result)
+					<tr>
+						<td>{{$result->nama_partner}}</td>
+						<td>{{$result->jam}}</td>
+						<td>{{$result->harga}}</td>
+						<td>{{$result->kotaasal}}</td>
+						<td>{{$result->kotatujuan}}</td>
+						<td><a href="{{route('pilih_kursi_display', ['keberangkatan'=>$result->kode_keberangkatan])}}">PESAN</a></td>
+					</tr>	
+				@endforeach
+			@endisset
 			</table>
 		</form>
 	</div>

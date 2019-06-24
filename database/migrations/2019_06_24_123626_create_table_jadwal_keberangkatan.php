@@ -25,10 +25,10 @@ class CreateTableJadwalKeberangkatan extends Migration
             $table->foreign('shuttle')->references('kode_partner')->on('partner');
 
             $table->String('keberangkatan',7);
-            $table->foreign('keberangkatan')->references('kode_partner')->on('partner');
+            $table->foreign('keberangkatan')->references('kode_pool')->on('pool');
 
             $table->String('tujuan',7);
-            $table->foreign('tujuan')->references('kode_partner')->on('partner');
+            $table->foreign('tujuan')->references('kode_pool')->on('pool');
 
         });
     }

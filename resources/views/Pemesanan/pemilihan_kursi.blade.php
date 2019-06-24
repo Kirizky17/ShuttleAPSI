@@ -1,64 +1,51 @@
 @extends('template')
 @section('content')
-<a href="/" class="back-button btn btn-primary">Kembali</a>
-	<div class="col-lg-12">
-	<form action="" method="post">
-	<table style="margin:20px auto;padding-left: 100px;float: left;">
-			<tr>
-				<td>Agen:</td>
-				<td><select name="asal" class="form-control" style="padding-right:72px;padding-top: 5px;padding-bottom: 5px">
-					<option value ="null">Please select value...</option>
-				</select></td>
-				<td></td>
-				<td></td>
-				<td style="padding-left: 400px">Tanggal Keberangkatan : </td>
-				<td><input type="date" name="tanggalkeberangkatan" class="form-control" style="padding-right:100px;padding-top: 5px;padding-bottom: 5px;margin-left: 10px" >
-				</td>
-			</tr>
-			<tr>
-				<td>Harga : </td>
-				<td><input type="text" name="tanggalkeberangkatan" class="form-control" style="padding-right:73px;padding-top: 5px;padding-bottom: 5px;margin-top: 10px " ></td>
-				<td></td>
-				<td></td>
-				<td style="padding-left: 400px">Waktu Keberangkatan : </td>
-				<td><input type="date" name="waktukeberangkatan" class="form-control" style="padding-right:100px;padding-top: 5px;padding-bottom: 5px;margin-left: 10px" ></td>
-			</tr>
-			<tr>
-				<td>Tempat Naik : </td>
-				<td><select name="tempatnaik" class="form-control" style="padding-right:72px;padding-top: 5px;padding-bottom: 5px;margin-top: 10px">
-					<option value ="null">Please select value...</option>
-				</select></td>
-				<td></td>
-				<td></td>
-				
-			</tr>
-			<tr>
-				<td>Tempat Turun:</td>
-				<td><select name="tempatturun" class="form-control" style="padding-right:72px;padding-top: 5px;padding-bottom: 5px;margin-top: 10px">
-					<option value ="null">Please select value...</option>
-				</select></td>
-				<td></td>
-				<td></td>
-				
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				
-			</tr>
-		</table>
-		<table style="margin:20px auto;padding-left: 100px;float: left;border: 1px;margin-left: 250px;">
-		<tr>
-			<th>Kode Kursi</th>
-			<th style="padding-left: 500px">Status</th>
-		</tr>
-		<tr>
-			<td><center>---kursi---</center></td>
-			<td style="padding-left: 500px"><center>---status---</center></td>
-		</tr>
-		</table>
-	</form>
+	@foreach ($data['result'] as $result)
+		<a href="/" class="back-button btn btn-primary">Kembali</a>
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+			<form action="" method="post" id="form-pilih-kursi">
+				<div class="row">
+					<div class="col-lg-2">Agen</div>
+					<div class="col-lg-4">: {{$result->nama_partner}}</div>
+					<div class="col-lg-3">Tanggal Keberangkatan </div>
+					<div class="col-lg-2">: {{$result->tanggal_keberangkatan}}</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2">Harga</div>
+					<div class="col-lg-4">: {{$result->harga}}</div>
+					<div class="col-lg-3">Waktu Keberangkatan </div>
+					<div class="col-lg-2">: {{$result->jam}}</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2">Tempat Naik </div>
+					<div class="col-lg-4">: {{$result->alamatasal}}</div>
+					<div class="col-lg-6"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2">Tempat Turun </div>
+					<div class="col-lg-4">: {{$result->alamattujuan}}</div>
+					<div class="col-lg-6"></div>
+				</div>
+				<div class="row">
+					<table id="tabel-pemesanan" class="table table-striped">
+						<tr>
+							<th style="width: 15%; text-align: center;">Kode Kursi</th>
+							<th style="width: 20%; text-align: center;">Status</th>
+							<th style="width: 10%; text-align: center;">Aksi</th>
+						</tr>
+						@foreach ($data['kursis'] as $kursi)
+							<tr>
+								<td>{{$kursi->no_kursi}}</td>
+								<td>{{$kursi->status}}</td>
+								<td><a href="{{route('pilih_kursi_display', ['keberangkatan'=>$result->kode_keberangkatan])}}">PESAN</a></td>
+							</tr>	
+						@endforeach					
+					</table>
+				</div>	
+			<div class="col-lg-2"></div>
+			</form>
+		</div>
+	@endforeach
 @endsection

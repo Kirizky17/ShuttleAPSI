@@ -15,11 +15,6 @@ class PageController extends Controller
 
     
 
-    public function pilihKursi()
-    {
-    	return view('Pemesanan/pemilihan_kursi');
-    }
-
     public function beli()
     {
     	return view('Pembelian/pembelian');

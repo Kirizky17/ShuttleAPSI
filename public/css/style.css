@@ -104,3 +104,12 @@ body {
 #homepage-title {
 	margin: 50px 0 !important;
 }
+
+#tabel-pemesanan {
+	text-align: center;
+	    margin: 30px 0 !important;
+}
+
+#form-pilih-kursi {
+	font-size: 20px;
+}

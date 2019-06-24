@@ -10,4 +10,9 @@ class Keberangkatan extends Model
     protected $primaryKey = 'kode_keberangkatan';
     protected $keyType = 'string';
     public $timestamps = false;
+
+    public function jadwal()
+    {
+        return $this->belongsTo('App\JadwalKeberangkatan','jadwal');
+    }
 }
