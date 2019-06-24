@@ -39,7 +39,7 @@
 							<tr>
 								<td>{{$kursi->no_kursi}}</td>
 								<td>{{$kursi->status}}</td>
-								<td><a href="{{route('pilih_kursi_display', ['keberangkatan'=>$result->kode_keberangkatan])}}">PESAN</a></td>
+								<td><a href="{{route('pilih_metode', ['keberangkatan'=>$kursi->kode_keberangkatan,'no_kursi'=>$kursi->id])}}">PESAN</a></td>
 							</tr>	
 						@endforeach					
 					</table>

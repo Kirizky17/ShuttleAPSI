@@ -88,8 +88,4 @@ class PemesananController extends Controller
     	return view('Pemesanan/pemilihan_kursi')->with('data',$data);
     }
 
-    public function pilih_kursi_display($request){
-    	
-    	return view('Pemesanan/pemilihan_kursi')->with('data',$data);
-    }
 }
