@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/card.css')}}">
 </head>
 <body>
 	<div class="row" id="header">

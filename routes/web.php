@@ -17,7 +17,7 @@ Route::get('/Home', ['uses' =>'PageController@home']);
 //Pemesanan
 Route::get('/Pesan', ['as' => 'pesan_display','uses' =>'PemesananController@pesan_display']);
 Route::post('/Pesan', ['as' => 'pesan_search','uses' =>'PemesananController@pesan_search']);
-
+Route::get('/PilihMetode', ['uses' =>'PageController@pilihMetode']);
 Route::get('/PilihKursi', ['uses' =>'PageController@pilihKursi']);
 
 Route::get('/Beli', ['uses' =>'PageController@beli']);
