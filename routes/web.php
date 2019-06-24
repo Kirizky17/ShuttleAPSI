@@ -13,10 +13,10 @@
 
 Route::get('/', ['uses' =>'PageController@Home']);
 
-Route::get('/Home', ['uses' =>'PageController@Home']);
-Route::get('/Pesan', ['uses' =>'PageController@Pesan']);
-Route::get('/Beli', ['uses' =>'PageController@Beli']);
-Route::get('/Batal', ['uses' =>'PageController@Batal']);
+Route::get('/Home', ['uses' =>'PageController@home']);
+Route::get('/Pesan', ['uses' =>'PageController@pesan']);
+Route::get('/Beli', ['uses' =>'PageController@beli']);
+Route::get('/Batal', ['uses' =>'PageController@batal']);
 
 Route::get('/a', function () {
     return view('app');

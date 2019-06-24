@@ -72,3 +72,22 @@ body {
 	color: white;
 	transition: all .5s;
 }
+
+.back-button {
+	margin: 10px !important;
+}
+
+.little-margin-ver {
+	margin: 10px 0px !important;
+}
+
+.little-margin-ver div {
+	min-height: 35px;
+	vertical-align: middle;
+}
+
+.little-margin-ver div p {
+	padding-top: 7px;
+	font-weight: bolder;
+	font-size: 14px;
+}

@@ -7,22 +7,27 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
-    public function Home()
+    public function home()
     {
     	return view('home');
     }
 
-    public function Pesan()
+    public function pesan()
     {
     	return view('Pemesanan/pemesanan');
     }
 
-    public function Beli()
+    public function pilihKursi()
+    {
+    	return view('pemesanan_tiket');
+    }
+
+    public function beli()
     {
     	return view('Pembelian/pembelian');
     }
 
-    public function Batal()
+    public function batal()
     {
     	return view('Pembatalan/pembatalan');
     }
