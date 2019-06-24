@@ -17,6 +17,7 @@ Route::get('/Home', ['uses' =>'PageController@home']);
 //Pemesanan
 Route::get('/Pesan', ['uses' =>'PageController@pesan']);
 Route::get('/PilihKursi', ['uses' =>'PageController@pilihKursi']);
+Route::get('/PilihMetode', ['uses' =>'PageController@pilihMetode']);
 
 
 Route::get('/Beli', ['uses' =>'PageController@beli']);
