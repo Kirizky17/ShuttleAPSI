@@ -20,6 +20,8 @@ Route::get('/PilihKursi', ['uses' =>'PageController@pilihKursi']);
 
 
 Route::get('/Beli', ['uses' =>'PageController@beli']);
+Route::get('/Confirm', ['uses' =>'PageController@confirm']);
+
 Route::get('/Batal', ['uses' =>'PageController@batal']);
 
 Route::get('/a', function () {
