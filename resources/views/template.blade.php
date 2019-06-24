@@ -15,7 +15,7 @@
 		@include('SubTemplate/header')
 	</div>
 	<div class="row">
-		<div id="content" class="col-lg-12">
+		<div id="content" class="col-lg-12" class="col-md-12">
 			@yield('content')
 		</div>
 	</div>
