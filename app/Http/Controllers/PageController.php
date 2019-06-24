@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class PageController extends Controller
 {
 
@@ -12,10 +13,7 @@ class PageController extends Controller
     	return view('home');
     }
 
-    public function pesan()
-    {
-    	return view('Pemesanan/pemesanan');
-    }
+    
 
     public function pilihKursi()
     {
