@@ -16,6 +16,7 @@
 	</div>
 	<div class="row">
 		<div id="content" class="col-lg-12 col-md-12">
+
 			@yield('content')
 		</div>
 	</div>
