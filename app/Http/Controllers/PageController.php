@@ -27,6 +27,11 @@ class PageController extends Controller
     	return view('Pembelian/pembelian');
     }
 
+    public function confirm()
+    {
+        return view('Pembelian/konfirmasi_pembelian');
+    }
+
     public function batal()
     {
     	return view('Pembatalan/pembatalan');
