@@ -15,11 +15,8 @@
 		@include('SubTemplate/header')
 	</div>
 	<div class="row">
-<<<<<<< HEAD
-		<div id="content" class="col-lg-12" class="col-md-12">
-=======
 		<div id="content" class="col-lg-12 col-md-12">
->>>>>>> dbf55c8e166ba7994a2f5502cebb9886f9b2de31
+
 			@yield('content')
 		</div>
 	</div>
