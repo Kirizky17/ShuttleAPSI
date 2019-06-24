@@ -19,7 +19,7 @@ class PageController extends Controller
 
     public function pilihKursi()
     {
-    	return view('pemesanan_tiket');
+    	return view('Pemesanan/pemilihan_kursi');
     }
 
     public function beli()

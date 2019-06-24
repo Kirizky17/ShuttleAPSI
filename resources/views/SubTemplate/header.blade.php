@@ -1,1 +1,1 @@
-<div class="pull-right" id="title">SHUTTLE.CO</div>
+<div class="pull-right" id="title"><a href="/">SHUTTLE.CO</a></div>

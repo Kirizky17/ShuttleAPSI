@@ -27,11 +27,18 @@ body {
 }
 
 #title {
-	color: white;
-	font-size: 24px;
 	font-weight: bolder;
 	font-family: roboto;
 	padding: 9px 15px;
+}
+
+#title a{
+	color: white;
+	font-size: 24px;
+}
+
+#title a:hover{
+	text-decoration: none;
 }
 
 #sidebar {
