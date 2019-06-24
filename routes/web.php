@@ -18,6 +18,6 @@ Route::get('/Pesan', ['uses' =>'PageController@pesan']);
 Route::get('/Beli', ['uses' =>'PageController@beli']);
 Route::get('/Batal', ['uses' =>'PageController@batal']);
 
-// Route::get('/a', function () {
-//     return view('app');
-// });
+Route::get('/a', function () {
+    return view('app');
+});
