@@ -12,9 +12,13 @@
 */
 
 Route::get('/', ['uses' =>'PageController@Home']);
-
 Route::get('/Home', ['uses' =>'PageController@home']);
+
+//Pemesanan
 Route::get('/Pesan', ['uses' =>'PageController@pesan']);
+Route::get('/PilihKursi', ['uses' =>'PageController@pilihKursi']);
+
+
 Route::get('/Beli', ['uses' =>'PageController@beli']);
 Route::get('/Batal', ['uses' =>'PageController@batal']);
 
