@@ -18,6 +18,8 @@ Route::get('/Home', ['uses' =>'PageController@home']);
 //Pemesanan
 Route::get('/Pesan', ['as' => 'pesan_display','uses' =>'PemesananController@pesan_display']);
 Route::post('/Pesan', ['as' => 'pesan_search','uses' =>'PemesananController@pesan_search']);
+
+
 Route::get('/PilihKursi/{keberangkatan}', ['as' => 'pilih_kursi_display','uses' =>'PemesananController@pilih_kursi_display']);
 Route::get('/PilihMetode/{keberangkatan}/{no_kursi}', ['as' => 'pilih_metode','uses' =>'PageController@pilihMetode']);
 Route::get('/PilihMetode/Member/{keberangkatan}/{no_kursi}', ['as' => 'member','uses' =>'PageController@member']);
