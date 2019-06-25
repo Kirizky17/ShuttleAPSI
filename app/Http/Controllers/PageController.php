@@ -59,7 +59,7 @@ class PageController extends Controller
         echo $request->id_member;
         echo $keberangkatan;
         echo $no_kursi;
-        echo $transaction_code = "TRC".substr($request->id_member, 1,2).substr($request->id_member, 4,2);
+        echo $transaction_code = "TRC".substr($request->id_member, 1,2).substr($request->id_member, 4,1).$no_kursi;
         $timezone = time() + (60 * 60 * 7);
         echo $currdate = date('Y-m-d',$timezone);
         echo $currtime = date('h:i:s',$timezone);
@@ -90,7 +90,7 @@ class PageController extends Controller
             ['status' => 'TERPESAN']
         );
 
-        // return view('Pemesanan/pemesanan_sukses')->with('data',$data);
+        return view('Pemesanan/pemesanan_sukses')->with('data',$data);
     }
 
     public function pilihMetode($keberangkatan, $no_kursi)
@@ -107,13 +107,18 @@ class PageController extends Controller
     	return view('Pembelian/pembelian');
     }
 
-    public function confirm()
+    public function beli_confirm(Request $request)
     {
         return view('Pembelian/konfirmasi_pembelian');
     }
 
     public function batal()
     {
-    	return view('Pembatalan/pembatalan');
+        return view('Pembatalan/pembatalan');
+    }
+
+    public function batal_confirm(Request $request)
+    {
+        return view('Pembatalan/pembatalan');
     }
 }
