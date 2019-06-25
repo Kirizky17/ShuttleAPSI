@@ -71,35 +71,38 @@ class PageController extends Controller
         $harga = JadwalKeberangkatan::where('kode_jadwal','=',$temp['jadwal'])->firstOrFail();;
         $harga['harga'];
 
-        DB::table('transaksi')->insert(
-            [
-                'kode_transaksi' => $transaction_code,
-                'jenis_transaksi' => "PEMESANAN",
-                'status_transaksi' => "AKTIF",
-                'tanggal_transaksi' => $currdate,
-                'total_harga' => $harga['harga'],
-                'jam_transaksi' => $currtime,
-                'keberangkatan' => $keberangkatan,
-                'member' => $request->id_member,
-                'non_member' => 0
-            ]
-        );
+        // DB::table('transaksi')->insert(
+        //     [
+        //         'kode_transaksi' => $transaction_code,
+        //         'jenis_transaksi' => "PEMESANAN",
+        //         'status_transaksi' => "AKTIF",
+        //         'tanggal_transaksi' => $currdate,
+        //         'total_harga' => $harga['harga'],
+        //         'jam_transaksi' => $currtime,
+        //         'keberangkatan' => $keberangkatan,
+        //         'member' => $request->id_member,
+        //         'non_member' => 0
+        //     ]
+        // );
 
-        DB::table('detail_transaksi')->insert(
-            [
-                'kode_transaksi' => $transaction_code,
-                'kursi' => $no_kursi
-            ]
-        );
+        // DB::table('detail_transaksi')->insert(
+        //     [
+        //         'kode_transaksi' => $transaction_code,
+        //         'kursi' => $no_kursi
+        //     ]
+        // );
 
-        DB::table('kursi')
-        ->updateOrInsert(
-            ['id' => $no_kursi],
-            ['status' => 'TERPESAN']
-        );
+        // DB::table('kursi')
+        // ->updateOrInsert(
+        //     ['id' => $no_kursi],
+        //     ['status' => 'TERPESAN']
+        // );
 
         $data = [
             'kode_transaksi' => $transaction_code,
+            'jam' => $harga['jam'],
+            'jadwal' => $temp['tanggal_keberangkatan'],
+            'no_kursi' => $no_kursi,
         ];
 
         return view('Pemesanan/pemesanan_sukses')->with('data',$data);
