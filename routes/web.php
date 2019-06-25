@@ -11,6 +11,7 @@
 |
 */
 
+//USER
 Route::get('/', ['uses' =>'PageController@Home']);
 Route::get('/Home', ['uses' =>'PageController@home']);
 
@@ -32,6 +33,15 @@ Route::post('/Beli/Confirm', ['as' => 'konfirmasi_beli','uses' =>'PageController
 Route::get('/Batal', ['uses' =>'PageController@batal']);
 Route::post('/Batal/Confirm', ['as' => 'konfirmasi_batal','uses' =>'PageController@batal_confirm']);
 
+//ADMIN
+Route::get('/Admin', ['uses' =>'AdminController@home']);
+Route::get('/Admin/Laporan', ['uses' =>'AdminController@laporan_setting']);
+Route::post('/Admin/Laporan/Generate', ['as' => 'generate_laporan','uses' =>'AdminController@generate_laporan']);
+
+//REACT
 Route::get('/a', function () {
     return view('app');
 });
+
+
+

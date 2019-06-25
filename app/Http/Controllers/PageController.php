@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\JadwalKeberangkatan;
+use App\Keberangkatan;
 
 
 class PageController extends Controller
@@ -56,20 +58,26 @@ class PageController extends Controller
 
         //AUTOMATION HERE
 
-        echo $request->id_member;
-        echo $keberangkatan;
-        echo $no_kursi;
-        echo $transaction_code = "TRC".substr($request->id_member, 1,2).substr($request->id_member, 4,1).$no_kursi;
+         $request->id_member;
+         $keberangkatan;
+         $no_kursi;
+         $transaction_code = "TRC".substr($request->id_member, 1,2).substr($request->id_member, 4,1).$no_kursi;
         $timezone = time() + (60 * 60 * 7);
-        echo $currdate = date('Y-m-d',$timezone);
-        echo $currtime = date('h:i:s',$timezone);
+        $currdate = date('Y-m-d',$timezone);
+        $currtime = date('h:i:s',$timezone);
+
+        $temp = Keberangkatan::where('kode_keberangkatan','=',$keberangkatan)->firstOrFail();
+        $temp['jadwal'];
+        $harga = JadwalKeberangkatan::where('kode_jadwal','=',$temp['jadwal'])->firstOrFail();;
+        $harga['harga'];
+
         DB::table('transaksi')->insert(
             [
                 'kode_transaksi' => $transaction_code,
                 'jenis_transaksi' => "PEMESANAN",
                 'status_transaksi' => "AKTIF",
                 'tanggal_transaksi' => $currdate,
-                'total_harga' => 0,
+                'total_harga' => $harga['harga'],
                 'jam_transaksi' => $currtime,
                 'keberangkatan' => $keberangkatan,
                 'member' => $request->id_member,
@@ -89,6 +97,10 @@ class PageController extends Controller
             ['id' => $no_kursi],
             ['status' => 'TERPESAN']
         );
+
+        $data = [
+            'kode_transaksi' => $transaction_code,
+        ];
 
         return view('Pemesanan/pemesanan_sukses')->with('data',$data);
     }
@@ -119,6 +131,6 @@ class PageController extends Controller
 
     public function batal_confirm(Request $request)
     {
-        return view('Pembatalan/pembatalan');
+        return view('Pembatalan/konfirmasi_pembatalan');
     }
 }

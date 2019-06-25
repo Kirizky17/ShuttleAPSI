@@ -39,7 +39,13 @@
 							<tr>
 								<td>{{$kursi->no_kursi}}</td>
 								<td>{{$kursi->status}}</td>
-								<td><a href="{{route('pilih_metode', ['keberangkatan'=>$kursi->kode_keberangkatan,'no_kursi'=>$kursi->id])}}">PESAN</a></td>
+								<td>
+									@if ($kursi->status == 'TERPESAN')
+										<a style="cursor: not-allowed;">PESAN</a>
+									@else
+										<a href="{{route('pilih_metode', ['keberangkatan'=>$kursi->kode_keberangkatan,'no_kursi'=>$kursi->id])}}">PESAN</a>
+									@endif
+								</td>
 							</tr>	
 						@endforeach					
 					</table>
